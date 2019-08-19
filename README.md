@@ -4,12 +4,13 @@
 
 ### Start postgresql server
 
-1. ``` bash
+1. start postgresql server:
+``` bash
 service postgresql start
 ```
-2. enter your account password in _pop-up window_
+2. enter your account password in __pop-up window__
 
-*OR*
+__OR__
 
 1. ``` bash
 sudo service postgresql start
