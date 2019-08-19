@@ -1,0 +1,7 @@
+en:
+  hello_world: 'Hello, world!'
+  actions:
+    user:
+      registration:
+        welcome:
+          "Hello, %{name}!\nWe need to quickly setup your account.\nPlease answer some questions."
