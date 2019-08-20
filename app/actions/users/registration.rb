@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Actions
-  module User
+  module Users
     class Registration
       attr_reader :tg_user, :user
 
@@ -10,22 +10,15 @@ module Actions
       end
 
       def launch
-        create_user
+        @user = DB.create_user(tg_user: tg_user)
+        binding.pry
         # send welcome message
         # launch options setup (Preferences#setup)
       end
 
       private
 
-      def create_user
-        @user = User.create(
-          tg_id: tg_user.id,
-          first_name: tg_user.first_name,
-          last_name: tg_user.last_name,
-          username: tg_user.username,
-          language_code: tg_user.language_code
-        )
-      end
+
     end
   end
 end

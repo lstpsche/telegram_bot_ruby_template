@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Actions
-  module User
+  module Users
     class Preferences
       def initialize
       end

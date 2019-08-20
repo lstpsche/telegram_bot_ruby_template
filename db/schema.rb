@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_08_19_204854) do
     t.string "language_code", default: "en", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "contex"
+    t.string "context"
   end
 
 end

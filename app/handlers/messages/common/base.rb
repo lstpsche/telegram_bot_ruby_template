@@ -23,9 +23,9 @@ module Handlers
         end
 
         def start
-          return false unless User.find_by(tg_id: tg_user.id)
+          return false if User.find_by(tg_id: tg_user.id)
 
-          Actions::User::Registration.new(tg_user: tg_user).launch
+          ::Actions::Users::Registration.new(tg_user: tg_user).launch
         end
 
         def settings

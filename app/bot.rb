@@ -22,6 +22,6 @@ class Bot
 
   def parse_message_type(message)
     message_class = message.class.to_s.split('::').last
-    HANDLERS[message_class].new()
+    HANDLERS[message_class].new.(message)
   end
 end
