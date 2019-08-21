@@ -6,9 +6,10 @@ module Handlers
       COMMAND_REGEX = /^\/(\w+)$/
 
       class Base < Handlers::Base
-        attr_reader :tg_user
+        attr_reader :bot, :tg_user
 
-        def initialize(tg_user:)
+        def initialize(bot:, tg_user:)
+          @bot = bot
           @tg_user = tg_user
         end
 
@@ -23,9 +24,10 @@ module Handlers
         end
 
         def start
+          binding.pry
           return false if User.find_by(tg_id: tg_user.id)
 
-          ::Actions::Users::Registration.new(tg_user: tg_user).launch
+          ::Actions::Users::Registration.new(bot: bot, tg_user: tg_user).launch
         end
 
         def settings

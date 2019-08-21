@@ -4,7 +4,10 @@ module Handlers
   module Messages
     module Text
       class Base
-        def initialize
+        attr_reader :bot
+
+        def initialize(bot:)
+          @bot = bot
         end
 
         def call(message_text)

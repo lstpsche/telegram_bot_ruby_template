@@ -12,6 +12,8 @@ require 'telegram/bot'
 # actions
 require_relative 'app/actions/users/preferences'
 require_relative 'app/actions/users/registration'
+# dialogs
+require_relative 'app/dialogs/talker'
 # handlers
 require_relative 'app/handlers/base'
 require_relative 'app/handlers/callbacks/base'
@@ -35,6 +37,5 @@ rake_app['db:connect'].invoke
 I18n.load_path << Dir[File.expand_path("lib/locales") + "/*.yml"]
 I18n.default_locale = :en
 
-binding.pry
 # launch bot
 Bot.new(ENV['BOT_TOKEN']).launch

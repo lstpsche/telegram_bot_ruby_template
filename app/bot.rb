@@ -6,7 +6,7 @@ HANDLERS = {
 }.freeze
 
 class Bot
-  attr_reader :token
+  attr_reader :bot, :token
 
   def initialize(token)
     @token = token
@@ -14,6 +14,8 @@ class Bot
 
   def launch
     Telegram::Bot::Client.run(token) do |bot|
+      @bot = bot
+
       bot.listen do |message|
         parse_message_type(message)
       end
@@ -22,6 +24,6 @@ class Bot
 
   def parse_message_type(message)
     message_class = message.class.to_s.split('::').last
-    HANDLERS[message_class].new.(message)
+    HANDLERS[message_class].new(bot: bot).(message)
   end
 end
