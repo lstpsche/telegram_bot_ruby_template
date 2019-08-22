@@ -10,4 +10,8 @@ class Talker
   def send_message(text:, chat_id:, markup: nil)
     bot.api.send_message(chat_id: chat_id, text: text, reply_markup: markup)
   end
+
+  def self.get_message(bot:)
+    bot.listen { |message| return message }
+  end
 end
