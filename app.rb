@@ -25,6 +25,7 @@ require_relative 'app/models/user'
 # helpers
 require_relative 'app/helpers/db'
 
+require_relative 'app/context'
 require_relative 'app/bot'
 # initialize what's needed
 ## rake

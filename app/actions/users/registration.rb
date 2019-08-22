@@ -9,17 +9,18 @@ module Actions
         @bot = bot
         @tg_user = tg_user
         @talker = Talker.new(bot: bot)
+        @preferences = Actions::Users::Preferences.new(bot: bot, chat_id: user.tg_id)
       end
 
       def launch
         @user = DB.create_user(tg_user: tg_user)
+
         talker.send_message(
           text: I18n.t('actions.users.registration.welcome') % {name: user.first_name},
           chat_id: user.tg_id
         )
-        binding.pry
-        # send welcome message
-        # launch options setup (Preferences#setup)
+
+        preferences.setup(user.id)
       end
     end
   end

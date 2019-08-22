@@ -24,14 +24,13 @@ module Handlers
         end
 
         def start
-          binding.pry
           return false if User.find_by(tg_id: tg_user.id)
 
           ::Actions::Users::Registration.new(bot: bot, tg_user: tg_user).launch
         end
 
         def settings
-          # if user is registered -- launch settings setup
+          # if user is registered -- call ::Actions::Users::Preferences.show_options
           # else -- return false
         end
 
