@@ -15,9 +15,11 @@ class Bot
   def launch
     Telegram::Bot::Client.run(token) do |bot|
       @bot = bot
+      talker = Talker.new(bot: bot)
 
       loop do
-        message = Talker.get_message(bot: bot)
+        message = talker.get_message
+        binding.pry
         parse_message_type(message)
       end
     end

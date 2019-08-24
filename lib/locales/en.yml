@@ -1,9 +1,12 @@
 en:
-  hello_world: 'Hello, world!'
   actions:
     users:
       preferences:
-        option_1: 'This is test method'
+        option_1: 'This is test method. What do you think?'
+        vegetarian: 'Are you a vegetarian?'
       registration:
         welcome:
           "Hello, %{name}!\nWe need to quickly setup your account.\nPlease answer some questions."
+  common:
+    'no': 'No'
+    'yes': 'Yes'
