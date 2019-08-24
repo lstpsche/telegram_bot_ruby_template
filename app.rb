@@ -9,6 +9,9 @@ require 'rake'
 require 'telegram/bot'
 
 # require files
+# helpers
+require_relative 'app/helpers/db'
+require_relative 'app/helpers/actions/users/preferences_helper'
 # actions
 require_relative 'app/actions/users/preferences'
 require_relative 'app/actions/users/registration'
@@ -22,8 +25,6 @@ require_relative 'app/handlers/messages/text/base'
 require_relative 'app/handlers/messages/base'
 # models
 require_relative 'app/models/user'
-# helpers
-require_relative 'app/helpers/db'
 
 require_relative 'app/context'
 require_relative 'app/bot'

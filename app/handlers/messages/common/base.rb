@@ -24,20 +24,32 @@ module Handlers
         end
 
         def start
-          return false if User.find_by(tg_id: tg_user.id)
+          return false if user_registered?(tg_id: tg_user.id)
 
           ::Actions::Users::Registration.new(bot: bot, tg_user: tg_user).launch
+          Talker.send_shorten_help_message(bot: bot, chat_id: tg_user.id)
         end
 
-        def settings
-          # if user is registered -- call ::Actions::Users::Preferences.show_options
-          # else -- return false
+        def main_menu
+        end
+
+        def preferences
+          return false if user_registered?(tg_id: tg_user.id)
+
+          ::Actions::Users::Preferences.new(bot: bot, tg_user: tg_user).show_options
         end
 
         def help
+          Talker.send_help_message(bot: bot, chat_id: tg_user.id)
         end
 
         def no_method
+        end
+
+        private
+
+        def user_registered?(tg_id:)
+          User.find_by(tg_id: tg_id) ? true : false
         end
       end
     end

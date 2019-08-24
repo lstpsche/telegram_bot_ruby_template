@@ -2,11 +2,14 @@ en:
   actions:
     users:
       preferences:
-        option_1: 'This is test method. What do you think?'
+        example_option_1: 'This is test method. What do you think?'
         vegetarian: 'Are you a vegetarian?'
+        setup_successful: "Everything is set up.\nYou're ready to go!"
       registration:
         welcome:
           "Hello, %{name}!\nWe need to quickly setup your account.\nPlease answer some questions."
   common:
+    help: "/start - initialize bot\n/preferences - setup preferences\n/help - show this message"
+    shorten_help: "/preferences - setup preferences\n/help - show this message"
     'no': 'No'
     'yes': 'Yes'

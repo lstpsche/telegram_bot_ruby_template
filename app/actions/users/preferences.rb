@@ -3,8 +3,10 @@
 module Actions
   module Users
     class Preferences
+      include Helpers::Actions::Users::PreferencesHelper
+
       OPTIONS = [
-        'option_1',
+        'example_option_1',
         'vegetarian'
       ]
 
@@ -24,32 +26,41 @@ module Actions
         end
 
         if user.save
-          # TODO: show 'successfully setup'
+          setup_successfull
+          # TODO: show 'successfully setup' WITH RemoveKeyboard markup
         else
           # TODO: show 'something's wrong'
           # TODO: handle this
         end
       end
 
+      def show_options
+        show_options_menu
+      end
+
       private
 
-      def option_send_message_get_response(option_name:, markup: nil)
-        message_text = I18n.t("actions.users.preferences.#{option_name}")
-        talker.send_message(text: message_text, chat_id: chat_id, markup: markup)
+      def get_response
         # THIS RESPONSE CAN BE FROM ANOTHER PERSON
         # SHOULD TEST IT
         # AND MAYBE ADD CHECKER, IF RESPONSE IS FROM NEEDED USER
         @response = talker.get_message
 
-        res_class = response.class.to_s.split('::').last
-        if res_class == 'Message'
+        case response
+        when Telegram::Bot::Types::Message
           return response.text
-        elsif res_class == 'CallbackQuery'
+        when Telegram::Bot::Types::CallbackQuery
           return response.data
         end
       end
 
-      def option_1
+      def option_send_message_get_response(option_name:, markup: nil)
+        send_option_message(option_name, markup)
+
+        get_response
+      end
+
+      def example_option_1
         option_send_message_get_response(option_name: __callee__.to_s)
         # set something up here
       end
