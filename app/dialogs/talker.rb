@@ -17,6 +17,12 @@ class Talker
     bot.listen { |message| return message }
   end
 
+  def self.send_message(bot:, text:, chat_id:, markup: nil)
+    markup = Telegram::Bot::Types::ReplyKeyboardRemove.new(remove_keyboard: true) if markup == 'remove'
+
+    bot.api.send_message(chat_id: chat_id, text: text, reply_markup: markup)
+  end
+
   def self.get_message(bot:)
     bot.listen { |message| return message }
   end

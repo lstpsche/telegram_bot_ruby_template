@@ -11,16 +11,20 @@ require 'telegram/bot'
 # require files
 # helpers
 require_relative 'app/helpers/db'
+require_relative 'app/helpers/constants'
 require_relative 'app/helpers/actions/users/preferences_helper'
+require_relative 'app/helpers/actions/users/options_helper'
 # actions
 require_relative 'app/actions/users/preferences'
 require_relative 'app/actions/users/registration'
+require_relative 'app/actions/users/options'
 # dialogs
 require_relative 'app/dialogs/talker'
 # handlers
 require_relative 'app/handlers/base'
 require_relative 'app/handlers/callbacks/base'
 require_relative 'app/handlers/messages/common/base'
+require_relative 'app/handlers/messages/common/preferences'
 require_relative 'app/handlers/messages/text/base'
 require_relative 'app/handlers/messages/base'
 # models

@@ -1,9 +1,12 @@
 en:
   actions:
     users:
-      preferences:
+      options:
         example_option_1: 'This is test method. What do you think?'
         vegetarian: 'Are you a vegetarian?'
+        setup_successful: 'Setting is set up successfully!'
+      preferences:
+        show_options: 'Choose a setting to setup:'
         setup_successful: "Everything is set up.\nYou're ready to go!"
       registration:
         welcome:
