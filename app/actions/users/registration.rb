@@ -2,7 +2,7 @@
 
 module Actions
   module Users
-    class Registration
+    class Registration < Base
       attr_reader :bot, :tg_user, :user, :talker, :preferences
 
       def initialize(bot:, tg_user:)

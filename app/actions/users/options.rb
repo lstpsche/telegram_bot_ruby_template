@@ -2,9 +2,7 @@
 
 module Actions
   module Users
-    class Options
-      include Helpers::Actions::UsersHelper
-
+    class Options < Base
       attr_reader :bot, :chat_id, :response, :talker, :user
 
       def initialize(bot:, chat_id:)

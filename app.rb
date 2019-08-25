@@ -14,6 +14,7 @@ require_relative 'app/constants'
 # helpers
 require_relative 'app/helpers/actions/users_helper'
 # actions
+require_relative 'app/actions/users/base'
 require_relative 'app/actions/users/preferences'
 require_relative 'app/actions/users/registration'
 require_relative 'app/actions/users/options'

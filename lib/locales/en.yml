@@ -12,8 +12,8 @@ en:
         welcome:
           "Hello, %{name}!\nWe need to quickly setup your account.\nPlease answer some questions."
   common:
-    help: "/start - initialize bot\n/preferences - setup preferences\n/help - show this message"
-    shorten_help: "/preferences - setup preferences\n/help - show this message"
+    help: "/start - initialize bot\n/main_menu - show main menu\n/preferences - setup preferences\n/help - show all commands"
+    shorten_help: "/main_menu - show main menu\n/preferences - setup preferences\n/help - show all commands"
     'no': 'No'
     'yes': 'Yes'
   errors:
