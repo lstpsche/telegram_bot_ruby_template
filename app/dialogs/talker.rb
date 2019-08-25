@@ -17,6 +17,10 @@ class Talker
     bot.listen { |message| return message }
   end
 
+  def show_something_wrong(chat_id:)
+    bot.api.send_message(chat_id: chat_id, text: I18n.t('errors.something_wrong'))
+  end
+
   def self.send_message(bot:, text:, chat_id:, markup: nil)
     markup = Telegram::Bot::Types::ReplyKeyboardRemove.new(remove_keyboard: true) if markup == 'remove'
 

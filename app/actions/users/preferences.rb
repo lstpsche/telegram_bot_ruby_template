@@ -25,7 +25,7 @@ module Actions
           setup_successfull
           # TODO: show 'successfully setup' WITH RemoveKeyboard markup
         else
-          # TODO: show 'something's wrong'
+          talker.show_something_wrong(chat_id: chat_id)
           # TODO: handle this
         end
       end

@@ -45,8 +45,7 @@ module Actions
 
       def get_response
         # THIS RESPONSE CAN BE FROM ANOTHER PERSON
-        # SHOULD TEST IT
-        # AND MAYBE ADD CHECKER, IF RESPONSE IS FROM NEEDED USER
+        # SHOULD TEST IT AND MAYBE ADD CHECKER, IF RESPONSE IS FROM NEEDED USER
         @response = talker.get_message
 
         case response

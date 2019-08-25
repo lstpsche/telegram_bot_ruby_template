@@ -16,3 +16,5 @@ en:
     shorten_help: "/preferences - setup preferences\n/help - show this message"
     'no': 'No'
     'yes': 'Yes'
+  errors:
+    something_wrong: "Sorry, something's gone wrong.\nPlease, try again."
