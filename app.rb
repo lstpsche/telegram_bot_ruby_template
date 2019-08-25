@@ -9,11 +9,10 @@ require 'rake'
 require 'telegram/bot'
 
 # require files
+require_relative 'app/db'
+require_relative 'app/constants'
 # helpers
-require_relative 'app/helpers/db'
-require_relative 'app/helpers/constants'
-require_relative 'app/helpers/actions/users/preferences_helper'
-require_relative 'app/helpers/actions/users/options_helper'
+require_relative 'app/helpers/actions/users_helper'
 # actions
 require_relative 'app/actions/users/preferences'
 require_relative 'app/actions/users/registration'

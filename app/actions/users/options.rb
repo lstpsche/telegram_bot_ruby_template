@@ -3,7 +3,7 @@
 module Actions
   module Users
     class Options
-      include Helpers::Actions::Users::OptionsHelper
+      include Helpers::Actions::UsersHelper
 
       attr_reader :bot, :chat_id, :response, :talker, :user
 

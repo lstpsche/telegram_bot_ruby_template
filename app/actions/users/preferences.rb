@@ -3,7 +3,7 @@
 module Actions
   module Users
     class Preferences
-      include Helpers::Actions::Users::PreferencesHelper
+      include Helpers::Actions::UsersHelper
 
       attr_reader :bot, :chat_id, :options, :talker, :user
 
@@ -23,7 +23,6 @@ module Actions
 
         if user.save
           setup_successfull
-          # TODO: show 'successfully setup' WITH RemoveKeyboard markup
         else
           talker.show_something_wrong(chat_id: chat_id)
           # TODO: handle this
