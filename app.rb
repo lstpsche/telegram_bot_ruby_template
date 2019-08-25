@@ -25,10 +25,11 @@ require_relative 'app/dialogs/talker'
 # handlers
 require_relative 'app/handlers/base'
 require_relative 'app/handlers/callbacks/base'
+require_relative 'app/handlers/messages/base'
 require_relative 'app/handlers/messages/common/base'
 require_relative 'app/handlers/messages/common/preferences'
+require_relative 'app/handlers/messages/common/menu'
 require_relative 'app/handlers/messages/text/base'
-require_relative 'app/handlers/messages/base'
 # models
 require_relative 'app/models/user'
 

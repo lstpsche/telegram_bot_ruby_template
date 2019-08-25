@@ -17,7 +17,7 @@ module Actions
         Constants.menu_options.each do |menu_option_name|
           menu_options_kb << Telegram::Bot::Types::InlineKeyboardButton.new(
             text: menu_option_name.capitalize,
-            callback_data: "/menu-#{menu_option_name.downcase.split(' ').join('_')}"
+            callback_data: "menu-#{menu_option_name.split(' ').join('_')}-main_menu"
           )
         end
         markup = Telegram::Bot::Types::InlineKeyboardMarkup.new(inline_keyboard: menu_options_kb)

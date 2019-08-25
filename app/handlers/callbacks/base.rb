@@ -16,9 +16,7 @@ module Handlers
         call_handler(parsed_command[2])
 
         return_to_context = parsed_command[4]
-        if return_to_context
-          send("show_#{return_to_context}")
-        end
+        show_options_menu if return_to_context == 'options_menu'
       end
 
       private
@@ -43,7 +41,7 @@ module Handlers
       end
 
       def show_main_menu
-        Actions::Features::Menu.new(bot: bot).show(chat_id: chat_id)
+        Actions::Features::Menu.new(bot: bot).show(chat_id: user_id)
       end
     end
   end
