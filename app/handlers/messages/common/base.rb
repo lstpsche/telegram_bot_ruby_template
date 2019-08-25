@@ -23,8 +23,12 @@ module Handlers
         end
 
         def main_menu
-          # show "not registered" message and say to run "/start"
-          # move this ^^ to Handlers::Base
+          unless user_registered?(id: tg_user.id)
+            Talker.show_not_registered(bot: bot, chat_id: tg_user.id)
+            return false
+          end
+
+          ::Actions::Features::Menu.new(bot: bot).show(chat_id: tg_user.id)
         end
 
         def preferences

@@ -18,6 +18,8 @@ require_relative 'app/actions/users/base'
 require_relative 'app/actions/users/preferences'
 require_relative 'app/actions/users/registration'
 require_relative 'app/actions/users/options'
+require_relative 'app/actions/features/base'
+require_relative 'app/actions/features/menu'
 # dialogs
 require_relative 'app/dialogs/talker'
 # handlers

@@ -1,5 +1,8 @@
 en:
   actions:
+    features:
+      menu:
+        text: 'Main menu'
     users:
       options:
         example_option_1: 'This is test method. What do you think?'
@@ -18,3 +21,4 @@ en:
     'yes': 'Yes'
   errors:
     something_wrong: "Sorry, something's gone wrong.\nPlease, try again."
+    not_registered: "Sorry, you're not registered yet.\nPlease, run /start to register."

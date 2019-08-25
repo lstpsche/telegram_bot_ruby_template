@@ -1,5 +1,7 @@
 # Telegram Bot Template on Plain Ol' Ruby
 
+Groups are **not supported**!
+
 ## Setup
 
 ### Start postgresql server

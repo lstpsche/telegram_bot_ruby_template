@@ -33,7 +33,7 @@ module Helpers
 
         Constants.options.each do |option_name|
           text = option_name.split('_').join(' ').capitalize
-          callback = "preferences-#{option_name}-menu"
+          callback = "preferences-#{option_name}-options_menu"
           options_kb << Telegram::Bot::Types::InlineKeyboardButton.new(text: text, callback_data: callback)
         end
 

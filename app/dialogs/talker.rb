@@ -17,8 +17,18 @@ class Talker
     bot.listen { |message| return message }
   end
 
+  def show_not_registered(chat_id:)
+    bot.api.send_message(chat_id: chat_id, text: I18n.t('errors.not_registered'))
+  end
+
   def show_something_wrong(chat_id:)
     bot.api.send_message(chat_id: chat_id, text: I18n.t('errors.something_wrong'))
+  end
+
+  # self methods (copies of usual methods mostly)
+
+  def self.show_not_registered(bot:, chat_id:)
+    bot.api.send_message(chat_id: chat_id, text: I18n.t('errors.not_registered'))
   end
 
   def self.send_message(bot:, text:, chat_id:, markup: nil)

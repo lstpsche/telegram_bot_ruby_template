@@ -15,4 +15,12 @@ class Constants
       'vegetarian'
     ]
   end
+
+  def self.menu_options
+    [
+      'app',
+      'preferences',
+      'some example feature'
+    ]
+  end
 end
