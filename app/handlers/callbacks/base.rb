@@ -3,7 +3,7 @@
 module Handlers
   module Callbacks
     class Base < Handlers::Base
-      attr_reader :bot, :parsed_command, :user_tg_id
+      attr_reader :bot, :parsed_command, :user_id
 
       def initialize(bot:)
         @bot = bot
@@ -20,7 +20,7 @@ module Handlers
       private
 
       def init_vars(callback)
-        @user_tg_id = callback.from.id
+        @user_id = callback.from.id
       end
 
       def parse_context_command(command)
@@ -31,11 +31,11 @@ module Handlers
         option_klass = parsed_command[1]
         handler = "Handlers::Messages::Common::#{option_klass.capitalize}".split('::').reduce(Module, :const_get)
 
-        handler.new(bot: bot, chat_id: user_tg_id, user: User.find_by(tg_id: user_tg_id)).(command)
+        handler.new(bot: bot, chat_id: user_id, user: User.find_by(id: user_id)).(command)
       end
 
       def show_options_menu
-        Actions::Users::Preferences.new(bot: bot, chat_id: user_tg_id).show_options_menu
+        Actions::Users::Preferences.new(bot: bot, chat_id: user_id).show_options_menu
       end
     end
   end

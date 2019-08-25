@@ -13,7 +13,7 @@ module Actions
         @talker = Talker.new(bot: bot)
       end
 
-      def example_option_1
+      def example_option_1(user)
         option_send_message_get_response(option_name: __callee__.to_s)
         # set something up here
       end

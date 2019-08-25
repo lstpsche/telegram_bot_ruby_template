@@ -5,7 +5,7 @@ module Actions
     class Preferences
       include Helpers::Actions::Users::PreferencesHelper
 
-      attr_reader :bot, :chat_id, :talker, :user
+      attr_reader :bot, :chat_id, :options, :talker, :user
 
       def initialize(bot:, chat_id:)
         @bot = bot

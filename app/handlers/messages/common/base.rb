@@ -16,7 +16,7 @@ module Handlers
         end
 
         def start
-          return false if user_registered?(tg_id: tg_user.id)
+          return false if user_registered?(id: tg_user.id)
 
           ::Actions::Users::Registration.new(bot: bot, tg_user: tg_user).launch
           Talker.send_shorten_help_message(bot: bot, chat_id: tg_user.id)
@@ -28,7 +28,7 @@ module Handlers
         end
 
         def preferences
-          return false unless user_registered?(tg_id: tg_user.id)
+          return false unless user_registered?(id: tg_user.id)
 
           ::Actions::Users::Preferences.new(bot: bot, chat_id: tg_user.id).show_options
         end
