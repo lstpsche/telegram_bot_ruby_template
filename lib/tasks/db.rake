@@ -5,7 +5,7 @@ namespace :db do
   task 'generate_model', :camel_model_name do |_tsk, args|
     Dir.mkdir 'app/models' unless File.exists?('app/models/')
 
-    camel_model_name = args['camel_model_name'].split('_').map(&:capitalize).join
+    camel_model_name = args['camel_model_name']
     snake_model_name = camel_model_name.split(/(?=[A-Z])/).map(&:downcase).join('_')
 
     File.open("app/models/#{snake_model_name}.rb", 'w') do |file|
