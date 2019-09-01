@@ -6,35 +6,27 @@ require 'dotenv/load'
 require 'i18n'
 require 'pry'
 require 'rake'
+require 'require_all'
 require 'telegram/bot'
 
 # require files
-require_relative 'app/db'
-require_relative 'app/constants'
-# helpers
-require_relative 'app/helpers/actions/users_helper'
-# actions
-require_relative 'app/actions/users/base'
-require_relative 'app/actions/users/preferences'
-require_relative 'app/actions/users/registration'
-require_relative 'app/actions/users/options'
-require_relative 'app/actions/features/base'
-require_relative 'app/actions/features/menu'
-# dialogs
+## helpers
+require_all 'app/helpers'
+## actions
+require_all 'app/actions/users'
+require_all 'app/actions/features'
+## dialogs
 require_relative 'app/dialogs/talker'
-# handlers
+## handlers
 require_relative 'app/handlers/base'
-require_relative 'app/handlers/callbacks/base'
-require_relative 'app/handlers/messages/base'
-require_relative 'app/handlers/messages/common/base'
-require_relative 'app/handlers/messages/common/preferences'
-require_relative 'app/handlers/messages/common/menu'
-require_relative 'app/handlers/messages/text/base'
-# models
-require_relative 'app/models/user'
+require_all 'app/handlers/callbacks'
+require_all 'app/handlers/messages'
+## models
+require_all 'app/models'
 
-require_relative 'app/context'
-require_relative 'app/bot'
+## global files
+require_all 'app/*.rb'
+
 # initialize what's needed
 ## rake
 rake_app = Rake.application
