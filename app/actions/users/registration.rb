@@ -20,7 +20,7 @@ module Actions
           chat_id: user.id
         )
 
-        preferences.setup(user.id)
+        preferences.init_setup(user.id)
       end
     end
   end

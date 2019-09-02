@@ -12,7 +12,7 @@ module Actions
         @options = Options.new(bot: bot, chat_id: chat_id)
       end
 
-      def setup(user_id)
+      def init_setup(user_id)
         @user = User.find_by(id: user_id)
 
         Constants.options.each do |option_name|
