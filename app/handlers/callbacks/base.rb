@@ -15,8 +15,7 @@ module Handlers
 
         call_handler(parsed_command[2])
 
-        return_to_context = parsed_command[4]
-        show_options_menu if return_to_context == 'options_menu'
+        return_to_context(parsed_command[4])
       end
 
       private
@@ -26,7 +25,8 @@ module Handlers
       end
 
       def parse_context_command(command)
-        @parsed_command = command.match(Constants.context_command_regex)
+        @parsed_command = command.match(Constants.context_command_regex) # /^(\w+)-(\w+)(-(\w+))?$/
+        # 1: class (ex. preferences)     2: command     3: context with "-" sign before     4: context (ex. main_menu)
       end
 
       def call_handler(command)
@@ -34,6 +34,15 @@ module Handlers
         handler = "Handlers::Messages::Common::#{option_klass.capitalize}".split('::').reduce(Module, :const_get)
 
         handler.new(bot: bot, chat_id: user_id, user: User.find_by(id: user_id)).(command)
+      end
+
+      def return_to_context(context)
+        case context
+        when 'options_menu'
+          show_options_menu
+        when 'main_menu'
+          show_main_menu
+        end
       end
 
       def show_options_menu

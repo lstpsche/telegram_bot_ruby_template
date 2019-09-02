@@ -28,12 +28,12 @@ module Helpers
         )
       end
 
-      def options_menu_inline_buttons
+      def options_menu_inline_buttons(context)
         options_kb = []
 
         Constants.options.each do |option_name|
           text = option_name.split('_').join(' ').capitalize
-          callback = "preferences-#{option_name}-options_menu"
+          callback = "preferences-#{option_name}" + ((context.nil? && context.strip.empty?) ? "-#{context}" : nil)
           options_kb << Telegram::Bot::Types::InlineKeyboardButton.new(text: text, callback_data: callback)
         end
 
