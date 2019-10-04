@@ -2,23 +2,37 @@ en:
   actions:
     features:
       menu:
-        text: 'Main menu'
+        header: 'Main menu'
     users:
+      option:
+        change_option:
+          name: 'setup'
+          button: 'Change option'
+        back:
+          name: 'back'
+          button: 'Back'
       options:
-        example_option_1: 'This is test method. What do you think?'
-        vegetarian: 'Are you a vegetarian?'
-        setup_successful: 'Setting is set up successfully!'
+        back:
+          name: 'back'
+          button: 'Back'
+        example_option_1:
+          name: 'example_option_1'
+          button: 'Example Option 1'
+          text: 'This is test method. What do you think?'
+        setup_successful: 'Setting was set up successfully!'
       preferences:
         show_options: 'Choose a setting to setup:'
-        setup_successful: "Everything is set up.\nYou're ready to go!"
+        setup_successful: "Everything's set up.\nYou're ready to go!"
       registration:
-        welcome:
-          "Hello, %{name}!\nWe need to quickly setup your account.\nPlease answer some questions."
+        welcome: "Hello, %{name}!\nWe need to quickly setup your account.\nPlease answer some questions."
   common:
-    help: "/start - register\n/main_menu - show main menu\n/preferences - setup preferences\n/help - show all commands"
-    shorten_help: "/main_menu - show main menu\n/preferences - setup preferences\n/help - show all commands"
+    back: 'Back'
+    help: "/start - show main menu\n/help - show this message"
     'no': 'No'
     'yes': 'Yes'
   errors:
+    bad_input: "Please, be more serious."
     something_wrong: "Sorry, something's gone wrong.\nPlease, try again."
+    no_command: "There's no such command.\nYou can use /help to view available text commands."
     not_registered: "Sorry, you're not registered yet.\nPlease, run /start to register."
+    not_understand: "Sorry, I don't understand.\nYou can use /help to view available text commands."
