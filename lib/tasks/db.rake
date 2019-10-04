@@ -23,7 +23,7 @@ namespace :db do
     snake_model_name = camel_model_name.split(/(?=[A-Z])/).map(&:downcase).join('_')
 
     return unless (model_file_path = Dir.glob("app/models/**/#{snake_model_name}.rb").first).present?
-    return unless (migration_file_path = Dir.glob("db/migrate/**/*_create_#{camel_model_name}.rb").first).present?
+    return unless (migration_file_path = Dir.glob("db/migrate/**/*_create_#{snake_model_name}.rb").first).present?
 
     File.delete(model_file_path)
     File.delete(migration_file_path)
