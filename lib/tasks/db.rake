@@ -31,6 +31,7 @@ namespace :db do
 
   desc 'Connects database'
   task :connect do
+    require 'dotenv/load'
     ActiveRecord::Base.establish_connection(
       adapter: 'postgresql',
       host: ENV['DB_HOST'],

@@ -13,11 +13,11 @@ module Helpers
     end
 
     def set_replace_last_true
-      user.update(replace_last_message: true)
+      user&.update(replace_last_message: true)
     end
 
     def set_replace_last_false
-      user.update(replace_last_message: false)
+      user&.update(replace_last_message: false)
     end
 
     def get_user(user = nil, chat_id: nil, fallback_user: nil)
@@ -25,7 +25,7 @@ module Helpers
     end
 
     def user_registered?(id:)
-      get_user(chat_id: id) ? true : false
+      User.registered?(id: chat_id)
     end
   end
 end

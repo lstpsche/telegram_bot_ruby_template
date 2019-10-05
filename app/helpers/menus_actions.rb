@@ -3,7 +3,7 @@
 module Helpers
   module MenusActions
     def launch_registration
-      ::Actions::Users::Registration.new(bot: bot, tg_user: tg_user).launch
+      ::Actions::Users::Registration.new(bot: bot, tg_user: user).launch
     end
 
     ################# Main Menu ####################################

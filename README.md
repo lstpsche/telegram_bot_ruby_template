@@ -35,6 +35,13 @@ You can run rake tasks.
 bundle exec rake --tasks
 ```
 
+## Run bot
+
+Launch the following from the app root
+``` bash
+bundle exec ruby app.rb
+```
+
 # Development
 
 To view all places, where you should place your new code, search by files texts a code word: **TEMPLATE_TODO**

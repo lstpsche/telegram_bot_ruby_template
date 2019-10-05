@@ -46,4 +46,10 @@ class User < ActiveRecord::Base
   def return_to
     context['return_to']
   end
+
+  class << self
+    def registered?(id:)
+      find_by(id: id).present?
+    end
+  end
 end
