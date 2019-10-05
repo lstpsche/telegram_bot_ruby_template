@@ -13,7 +13,7 @@ module Helpers
     end
 
     # TEMPLATE_TODO: add here your features calling
-    # ::Actions::Features::YourFeature1::YourSubfeature1.new(bot: bot, user: user).show
+    ::Actions::Features::YourFeature1::YourSubfeature1.new(bot: bot, user: user, some_attr: 'attr').show
 
     def show_preferences
       ::Actions::Users::Preferences.new(bot: bot, user: user).show

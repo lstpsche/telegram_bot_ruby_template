@@ -37,6 +37,12 @@ class Constants
       options_translations_for(MENU_OPTIONS, scope)
     end
 
+    # TEMPLATE_TODO: add options for your features menus
+    # for example:
+    def subfeature_1_options
+      ['one', 'two', 3, 4]
+    end
+
     # CALLBACKS
 
     def main_menu_callback
@@ -48,6 +54,10 @@ class Constants
     end
 
     # TEMPLATE_TODO: add your menu buttons callbacks here
+    # for example:
+    def subfeature_1_callback
+      "subfeature_1-%{command}%{return_to}"
+    end
 
     # using for inner coding. no need to translate
 
