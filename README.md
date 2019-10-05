@@ -1,6 +1,9 @@
 # Telegram Bot Template on Plain Ol' Ruby
 
-Groups are **not supported**!
+## Notes
+
+1) Group chats are **not supported**!
+2) `return_to` is almost deprecated
 
 ## Setup
 
@@ -29,26 +32,35 @@ You can run rake tasks. Notice `noglob` word before `rake`.
 noglob rake --tasks
 ```
 
-## Methods
+# Development
 
-All methods can be simply overriden by .........
+To view all places, where you should place your new code, search by files texts a code word: **TEMPLATE_TODO**
 
-### Common commands
+# Dictionary
 
-Common commands are those like `/start` or `/help`.
+## Naming
 
-Below are default behavior of those methods.
+| Phrase             | Description |
+| -----------------: | :----------------------------------------------------------------- |
+| **Common command** | Text commands. The ones, that are writen with a foregoing slash |
+| **Main Menu**      | Bot's main menu. Usually consists of your features and Preferences |
+| **Option**         | Clickable callback-buttons at each menu |
+| **Preferences**    | User's preferences |
 
-#### Start
+## Common commands
+
+There're default behaviors of those methods below.
+
+### Start
 
 Method `Handlers::Common::Base#start` does next:
 1. Checks if User is already registered (finds in database by his telegram_id).
-2.1. If User is registered -- returns `false`.
+2.1. If User is registered -- shows Main Menu.
 2.2. If User is <em>not</em> registered -- launches registration dialog.
 
 As you could notice, default `start` behaviour **requires model User to exist**.
 
-#### Help
+### Help
 
-Method `Handlers::Common::Base#help` sends a help-message to chat, where `/help` was called.
-Message contains all described common commands (generates basing on methods described in `Handlers::Common`) + additional info from `additional_help` variable.
+Sends a help-message to chat, where `/help` was called. \
+Message contains all described common commands.
