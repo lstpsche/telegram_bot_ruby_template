@@ -12,19 +12,19 @@ module Actions
 
       def initialize(bot:, user:)
         @bot = bot
-        @user = user
         @chat_id = user.id
+        @user = user
       end
 
       def show(args = {})
-        before_show(args.fetch(:before, nil))
+        before_show(args[:before])
 
         send_or_edit_message(
           message_id: user.last_message_id,
           text: message_text, markup: create_markup(args.fetch(:markup_options, nil))
         )
 
-        after_show(args.fetch(:after, nil))
+        after_show(args[:after])
       end
 
       def back
