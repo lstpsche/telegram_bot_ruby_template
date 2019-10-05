@@ -3,24 +3,41 @@
 module Actions
   module Users
     class Registration < Base
-      attr_reader :bot, :tg_user, :user, :talker, :preferences
+      # attrs from base -- :bot, :chat_id, :user
+      attr_reader :tg_user
 
       def initialize(bot:, tg_user:)
         @bot = bot
         @tg_user = tg_user
-        @talker = Talker.new(bot: bot)
+        @chat_id = tg_user.id
       end
 
-      def launch
+      # TEMPLATE_TODO: you can override 'show' method to do, what you want registration to do
+      # pay attention to 'before_show' and 'after_show' methods
+
+      # 'show' is in base
+
+      alias :launch :show
+
+      # Registration has no 'back' button
+      def back
+        raise NoMethodError
+      end
+
+      private
+
+      def before_show(*args)
         @user = DB.create_user(tg_user: tg_user)
-        @preferences = Actions::Users::Preferences.new(bot: bot, chat_id: user.id)
+        set_replace_last_false
+      end
 
-        talker.send_message(
-          text: I18n.t('actions.users.registration.welcome') % {name: user.first_name},
-          chat_id: user.id
-        )
+      def after_show(*args)
+        setup_all_preferences
+        show_main_menu
+      end
 
-        preferences.init_setup(user.id)
+      def message_text
+        I18n.t('actions.users.registration.welcome') % { name: user.first_name }
       end
     end
   end

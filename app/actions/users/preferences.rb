@@ -3,32 +3,30 @@
 module Actions
   module Users
     class Preferences < Base
-      attr_reader :bot, :chat_id, :options, :talker, :user
+      # attrs from base -- :bot, :chat_id, :user
 
-      def initialize(bot:, chat_id:)
-        @bot = bot
-        @chat_id = chat_id
-        @talker = Talker.new(bot: bot)
-        @options = Options.new(bot: bot, chat_id: chat_id)
-      end
+      # 'initialize' is in base
 
-      def init_setup(user_id)
-        @user = User.find_by(id: user_id)
-
-        Constants.options.each do |option_name|
-          options.send(option_name, user)
-        end
-
-        if user.save
-          setup_successfull
-        else
-          talker.show_something_wrong(chat_id: chat_id)
-          # TODO: handle this
-        end
-      end
-
-      def show_options
+      def show
         show_options_menu
+      end
+
+      # 'back' is in base
+
+      def setup_all
+        setup_all_options
+        save_validate_user { setup_successfull }
+      end
+
+      private
+
+      # 'option_name' is in base
+
+      def setup_all_options
+        # setup all options one by one
+        Constants.preferences_setup_options.each do |option|
+          setup_option(option_name(option))
+        end
       end
     end
   end
