@@ -9,14 +9,6 @@
 
 ### Start postgresql server
 
-1. start postgresql server:
-``` bash
-service postgresql start
-```
-2. enter your account password in <em>pop-up window</em>.
-
-**OR**
-
 1. start postgresql server with <em>sudo</em>:
 ``` bash
 sudo service postgresql start
@@ -48,7 +40,7 @@ To view all places, where you should place your new code, search by files texts 
 
 1) `message.data` goes to `Routers::Messages::CallbacksRouter`
 2) ----> `Handlers::Callbacks::YourHandlerHere`
-3) a) callback is from Main Menu: ----> Shows tapped menu
+3) a) callback is from Main Menu: ----> Shows tapped menu \
    b) callback is from Feature: ----> `Routers::Features::YourFeatureRouter`
 4) <em>only from 3b</em>: ----> Shows tapped menu
 
