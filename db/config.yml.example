@@ -6,6 +6,9 @@ default: &default
   user: postgres
   password: password
 
+# TEMPLATE_TODO: replace those db names with yours
+# Example: lp_todo_development
+
 development:
   <<: *default
   database: template_development
@@ -15,3 +18,5 @@ test: &test
   database: template_test
 
 production:
+  <<: *default
+  database: template_production

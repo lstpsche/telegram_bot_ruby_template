@@ -5,7 +5,18 @@
 1) Group chats are **not supported**!
 2) `return_to` is almost deprecated
 
-## Setup
+# Setup
+
+## First things first
+
+Launch this
+``` bash
+bundle && bundle exec rake app:init
+```
+
+This command will install needed gems and clone the next files:
+1) "config.yml.example" ---> "**config.yml**"
+2) ".env.example" ---> "**.env**"
 
 ### Start postgresql server
 
@@ -17,11 +28,11 @@ sudo service postgresql start
 
 ## Rake tasks
 
-You can run rake tasks. Notice `noglob` word before `rake`.
+You can run rake tasks.
 
 #### Show all tasks
 ``` bash
-noglob rake --tasks
+bundle exec rake --tasks
 ```
 
 # Development
