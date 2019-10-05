@@ -3,27 +3,46 @@
 module Actions
   module Features
     class Menu < Base
-      attr_reader :bot, :chat_id, :talker
+      # attrs from base -- :bot, :chat_id, :user
 
-      def initialize(bot:)
-        @bot = bot
-        @talker = Talker.new(bot: bot)
+      # 'initialize' is in base
+      # 'show' is in base
+
+      def show
+        params = {
+          markup_options: Constants.menu_options
+        }
+
+        super(params)
       end
 
-      def show(chat_id:)
-        @chat_id = chat_id
-
-        menu_options_kb = []
-        Constants.menu_options.each do |menu_option_name|
-          menu_options_kb << Telegram::Bot::Types::InlineKeyboardButton.new(
-            text: menu_option_name.capitalize,
-            callback_data: "menu-#{menu_option_name.split(' ').join('_')}-main_menu"
-          )
-        end
-        markup = Telegram::Bot::Types::InlineKeyboardMarkup.new(inline_keyboard: menu_options_kb)
-
-        talker.send_message(text: I18n.t('actions.features.menu.text'), chat_id: chat_id, markup: markup)
+      # there is no 'back' in Main Menu
+      def back
+        raise NoMethodError
       end
+
+      private
+
+      def after_show(*args)
+        set_replace_last_true
+      end
+
+      def callback(command)
+        Constants.main_menu_callback % {
+          command: command,
+          return_to: nil
+        }
+      end
+
+      # create_button is in base
+      # create_markup is in base
+
+      def message_text
+        I18n.t('actions.features.menu.header')
+      end
+
+      # option_button is in base
+      # option_name is in base
     end
   end
 end
