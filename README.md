@@ -9,12 +9,12 @@
 
 ## First things first
 
-Launch this
+Install all required gems:
 ``` bash
-bundle && bundle exec rake app:init
+bundle install
 ```
 
-This command will install needed gems and clone the next files:
+Clone this files and fill them with your data:
 1) "config.yml.example" ---> "**config.yml**"
 2) ".env.example" ---> "**.env**"
 
