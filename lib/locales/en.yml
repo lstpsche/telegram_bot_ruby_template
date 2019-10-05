@@ -2,38 +2,37 @@ en:
   actions:
     features:
       menu:
-        header: 'Main menu'
+        header: Main menu
         preferences:
-          name: 'preferences'
-          button: 'Preferences'
+          name: preferences
+          button: Preferences
         # TEMPLATE_TODO: add here locales for your features, that should be at Main menu
-        # follow the pattern of 'preferences'
+        # follow the pattern of 'preferences' above
     users:
       option:
         change_option:
-          name: 'setup'
-          button: 'Change option'
+          name: setup
+          button: Change option
         back:
-          name: 'back'
-          button: 'Back'
+          name: back
+          button: Back
       options:
         back:
-          name: 'back'
-          button: 'Back'
+          name: back
+          button: Back
         example_option_1:
-          name: 'example_option_1'
-          button: 'Example Option 1'
-          text: 'This is test method. What do you think?'
+          name: example_option_1
+          button: Example Option 1
+          text: This is test method. What do you think?
         # TEMPLATE_TODO: add here translations for your custom user preferences
-        setup_successful: 'Setting was set up successfully!'
-      # TODO: refactor this locales
+        setup_successful: Setting was set up successfully!
       preferences:
         show_options: 'Choose a setting to setup:'
         setup_successful: "Everything's set up.\nYou're ready to go!"
       registration:
         welcome: "Hello, %{name}!\nWe need to quickly setup your account.\nPlease answer some questions."
   common:
-    back: 'Back'
+    back: Back
     help: "/start - show main menu\n/help - show this message"
     'no': 'No'
     'yes': 'Yes'

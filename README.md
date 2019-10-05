@@ -53,6 +53,7 @@ To view all places, where you should place your new code, search by files texts 
 | **Common command** | Text commands. The ones, that are writen with a foregoing slash |
 | **Main Menu**      | Bot's main menu. Usually consists of your features and Preferences |
 | **Option**         | Clickable callback-buttons at each menu |
+| **User Options**   | Same as preferences |
 | **Preferences**    | User's preferences |
 
 ## Common commands
