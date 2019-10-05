@@ -3,6 +3,11 @@ en:
     features:
       menu:
         header: 'Main menu'
+        preferences:
+          name: 'preferences'
+          button: 'Preferences'
+        # TEMPLATE_TODO: add here locales for your features, that should be at Main menu
+        # follow the pattern of 'preferences'
     users:
       option:
         change_option:
@@ -19,7 +24,9 @@ en:
           name: 'example_option_1'
           button: 'Example Option 1'
           text: 'This is test method. What do you think?'
+        # TEMPLATE_TODO: add here translations for your custom user preferences
         setup_successful: 'Setting was set up successfully!'
+      # TODO: refactor this locales
       preferences:
         show_options: 'Choose a setting to setup:'
         setup_successful: "Everything's set up.\nYou're ready to go!"

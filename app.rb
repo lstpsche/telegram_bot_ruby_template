@@ -22,11 +22,12 @@ require_all 'app/services'
 ## actions
 require_all 'app/actions/users'
 require_all 'app/actions/features'
-require_all 'app/actions/features/schedules'
+# TEMPLATE_TODO: require here your features folders
 ## dialogs
 require_relative 'app/dialogs/talker'
 ## handlers
 require_all 'app/handlers/callbacks'
+require_all 'app/handlers/text_commands'
 ## routers
 require_all 'app/routers'
 ## serializers

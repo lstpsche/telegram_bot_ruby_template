@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 ROUTERS = {
-  'Message' => Routers::TextCommandsRouter,
-  'CallbackQuery' => Routers::CallbacksRouter
+  'Message' => Routers::Messages::TextCommandsRouter,
+  'CallbackQuery' => Routers::Messages::CallbacksRouter
 }.freeze
 
 class Bot
@@ -19,6 +19,7 @@ class Bot
 
       loop do
         message = talker.get_message
+        # binding.pry
         parse_message_type(message)
       rescue => error
         Services::ErrorParserService.new(bot: bot, chat_id: message.from.id, error: error.to_s).handle_errors

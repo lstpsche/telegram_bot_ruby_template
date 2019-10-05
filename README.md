@@ -36,6 +36,22 @@ noglob rake --tasks
 
 To view all places, where you should place your new code, search by files texts a code word: **TEMPLATE_TODO**
 
+# Architecture
+
+## Text commands
+
+1) `message.text` ----> `Routers::Messages::TextCommandsRouter`
+2) ----> `Handlers::TextCommands::YourHandlerHere`
+3) ----> Does, what it should do, when given command is typed
+
+## Calbacks buttons
+
+1) `message.data` goes to `Routers::Messages::CallbacksRouter`
+2) ----> `Handlers::Callbacks::YourHandlerHere`
+3) a) callback is from Main Menu: ----> Shows tapped menu
+   b) callback is from Feature: ----> `Routers::Features::YourFeatureRouter`
+4) <em>only from 3b</em>: ----> Shows tapped menu
+
 # Dictionary
 
 ## Naming

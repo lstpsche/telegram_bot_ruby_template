@@ -23,7 +23,7 @@ module Actions
 
         send_or_edit_message(
           message_id: user.last_message_id,
-          text: message_text, markup: crate_markup(args.fetch(:markup_options, nil))
+          text: message_text, markup: create_markup(args.fetch(:markup_options, nil))
         )
 
         after_show(args[:after])

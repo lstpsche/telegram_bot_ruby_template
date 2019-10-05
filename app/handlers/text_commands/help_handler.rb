@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
 module Handlers
-  module Callbacks
-    class Preferences < Base
+  module TextCommands
+    class HelpHandler < Base
       # attrs from base -- :bot, :chat_id, :user
 
       # 'initialize' is in base
 
-      def handle(command)
-        Routers::Features::OptionsRouter.new(bot: bot, user: user).route(command)
+      def handle
+        set_replace_last_false
+        show_help
       end
     end
   end

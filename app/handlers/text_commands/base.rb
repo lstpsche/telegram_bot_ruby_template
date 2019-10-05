@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Handlers
-  module Callbacks
+  module TextCommands
     class Base
       include Helpers::Common
       include Helpers::MenusActions
@@ -9,7 +9,7 @@ module Handlers
 
       attr_reader :bot, :chat_id, :user
 
-      def initialize(bot:, user:)
+      def initialize(bot:, chat_id:, user:)
         @bot = bot
         @chat_id = user.id
         @user = user

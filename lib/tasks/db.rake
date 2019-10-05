@@ -34,7 +34,7 @@ namespace :db do
     ActiveRecord::Base.establish_connection(
       adapter: 'postgresql',
       host: ENV['DB_HOST'],
-      database: ENV['DB_NAME'],
+      database: ENV['DB_NAME'] + '_' + ENV['RAILS_ENV'],
       username: ENV['DB_USER'],
       password: ENV['DB_PASS']
     )
