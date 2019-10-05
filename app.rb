@@ -4,23 +4,33 @@
 require 'active_record'
 require 'dotenv/load'
 require 'i18n'
+require 'json'
+require 'net/http'
 require 'pry'
 require 'rake'
 require 'require_all'
+require 'securerandom'
 require 'telegram/bot'
+require 'time'
+require 'uri'
 
 # require files
 ## helpers
 require_all 'app/helpers'
+## services
+require_all 'app/services'
 ## actions
 require_all 'app/actions/users'
 require_all 'app/actions/features'
+require_all 'app/actions/features/schedules'
 ## dialogs
 require_relative 'app/dialogs/talker'
 ## handlers
-require_relative 'app/handlers/base'
 require_all 'app/handlers/callbacks'
-require_all 'app/handlers/messages'
+## routers
+require_all 'app/routers'
+## serializers
+require_all 'app/serializers'
 ## models
 require_all 'app/models'
 
