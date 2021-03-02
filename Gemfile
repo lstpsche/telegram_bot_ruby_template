@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 
 ruby '2.6.3'
 
-gem 'activerecord', '~> 5.2.3'
+gem 'activerecord', '~> 5.2.4'
 gem 'dotenv', '~> 2.7.5'
 gem 'i18n', '~> 1.6.0'
 gem 'standalone_migrations', '~> 5.2.7'
