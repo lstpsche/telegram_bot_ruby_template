@@ -14,7 +14,7 @@ Install all required gems:
 bundle install
 ```
 
-Clone this files and fill them with your data:
+Clone these files and fill them with your data:
 1) "config.yml.example" ---> "**config.yml**"
 2) ".env.example" ---> "**.env**"
 
